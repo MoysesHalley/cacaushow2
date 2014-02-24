@@ -1,0 +1,815 @@
+[33mcommit b0d874c19bb45776bcf1fb65e248610248b226fe[m
+Author: MoysesHalley <tzhalley@gmail.com>
+Date:   Sun Feb 23 12:41:53 2014 -0400
+
+    first commit
+
+ .editorconfig                                      |   13 [32m+[m
+ .gitignore                                         |   21 [32m+[m
+ .htaccess                                          |    5 [32m+[m
+ .travis.yml                                        |  118 [32m+[m
+ .../apresentacao.md                                |   21 [32m+[m
+ .../pax_global_header                              |    1 [32m+[m
+ CONTRIBUTING.md                                    |   73 [32m+[m
+ README.md                                          |   43 [32m+[m
+ app/.gitignore                                     |    4 [32m+[m
+ app/.htaccess                                      |    5 [32m+[m
+ app/Config/Schema/db_acl.php                       |   69 [32m+[m
+ app/Config/Schema/db_acl.sql                       |   41 [32m+[m
+ app/Config/Schema/i18n.php                         |   50 [32m+[m
+ app/Config/Schema/i18n.sql                         |   27 [32m+[m
+ app/Config/Schema/sessions.php                     |   45 [32m+[m
+ app/Config/Schema/sessions.sql                     |   17 [32m+[m
+ app/Config/acl.ini.php                             |   65 [32m+[m
+ app/Config/acl.php                                 |  133 [32m+[m
+ app/Config/bootstrap.php                           |  109 [32m+[m
+ app/Config/email.php.default                       |   94 [32m+[m
+ app/Config/routes.php                              |   20 [32m+[m
+ app/Console/Command/AppShell.php                   |   30 [32m+[m
+ app/Console/Command/Task/empty                     |    0
+ app/Console/Templates/empty                        |    0
+ app/Console/cake                                   |   41 [32m+[m
+ app/Console/cake.bat                               |   31 [32m+[m
+ app/Console/cake.php                               |   36 [32m+[m
+ app/Controller/AppController.php                   |   36 [32m+[m
+ app/Controller/Component/empty                     |    0
+ app/Controller/PagesController.php                 |   77 [32m+[m
+ app/Lib/empty                                      |    0
+ app/Locale/eng/LC_MESSAGES/empty                   |    0
+ app/Model/AppModel.php                             |   33 [32m+[m
+ app/Model/Behavior/empty                           |    0
+ app/Model/Datasource/empty                         |    0
+ app/Plugin/empty                                   |    0
+ app/Test/Case/Controller/Component/empty           |    0
+ app/Test/Case/Model/Behavior/empty                 |    0
+ app/Test/Case/View/Helper/empty                    |    0
+ app/Test/Fixture/empty                             |    0
+ app/Vendor/empty                                   |    0
+ app/View/Elements/empty                            |    0
+ app/View/Emails/html/default.ctp                   |   25 [32m+[m
+ app/View/Emails/text/default.ctp                   |   19 [32m+[m
+ app/View/Errors/error400.ctp                       |   31 [32m+[m
+ app/View/Errors/error500.ctp                       |   28 [32m+[m
+ app/View/Helper/AppHelper.php                      |   33 [32m+[m
+ app/View/Layouts/Emails/html/default.ctp           |   29 [32m+[m
+ app/View/Layouts/Emails/text/default.ctp           |   21 [32m+[m
+ app/View/Layouts/ajax.ctp                          |   19 [32m+[m
+ app/View/Layouts/default.ctp                       |  138 [32m+[m
+ app/View/Layouts/error.ctp                         |   61 [32m+[m
+ app/View/Layouts/flash.ctp                         |   37 [32m+[m
+ app/View/Layouts/js/default.ctp                    |    2 [32m+[m
+ app/View/Layouts/rss/default.ctp                   |   14 [32m+[m
+ app/View/Layouts/xml/default.ctp                   |    1 [32m+[m
+ app/View/Pages/chocolate.ctp                       |    1 [32m+[m
+ app/View/Pages/empresa.ctp                         |    1 [32m+[m
+ app/View/Pages/faleconosco.ctp                     |    4 [32m+[m
+ app/View/Pages/galeria.ctp                         |    1 [32m+[m
+ app/View/Pages/home.ctp                            |    1 [32m+[m
+ app/View/Pages/novidades.ctp                       |    1 [32m+[m
+ app/View/Pages/presentes.ctp                       |    1 [32m+[m
+ app/View/Pages/produtos.ctp                        |    1 [32m+[m
+ app/View/Pages/promocoes.ctp                       |    1 [32m+[m
+ app/View/Scaffolds/empty                           |    0
+ app/View/pagina/empresa.ctp                        |    1 [32m+[m
+ app/View/pagina/faleconosco.ctp                    |    3 [32m+[m
+ app/View/pagina/home.ctp                           |    1 [32m+[m
+ app/index.php                                      |   19 [32m+[m
+ app/webroot/.htaccess                              |    6 [32m+[m
+ app/webroot/css/bootstrap-theme.css                |  397 [32m+[m
+ app/webroot/css/bootstrap-theme.min.css            |    7 [32m+[m
+ app/webroot/css/bootstrap.css                      | 7117 [32m+++++++++++++++[m
+ app/webroot/css/bootstrap.min.css                  |    7 [32m+[m
+ app/webroot/css/cake.generic.css                   |  214 [32m+[m
+ app/webroot/css/principal.css                      |    1 [32m+[m
+ app/webroot/favicon.ico                            |  Bin [31m0[m -> [32m372[m bytes
+ app/webroot/files/empty                            |    0
+ app/webroot/files/glyphicons-halflings-regular.eot |  Bin [31m0[m -> [32m20290[m bytes
+ app/webroot/files/glyphicons-halflings-regular.svg |  229 [32m+[m
+ app/webroot/files/glyphicons-halflings-regular.ttf |  Bin [31m0[m -> [32m41236[m bytes
+ .../files/glyphicons-halflings-regular.woff        |  Bin [31m0[m -> [32m23292[m bytes
+ app/webroot/img/bg_fundo.gif                       |  Bin [31m0[m -> [32m15767[m bytes
+ app/webroot/img/bg_fundo.jpg                       |  Bin [31m0[m -> [32m22721[m bytes
+ app/webroot/img/bg_fundo.png                       |  Bin [31m0[m -> [32m15142[m bytes
+ app/webroot/img/cake.icon.png                      |  Bin [31m0[m -> [32m943[m bytes
+ app/webroot/img/cake.power.gif                     |  Bin [31m0[m -> [32m201[m bytes
+ app/webroot/img/face.png                           |  Bin [31m0[m -> [32m1646[m bytes
+ app/webroot/img/g+.png                             |  Bin [31m0[m -> [32m2100[m bytes
+ app/webroot/img/glyphicons-halflings-white.png     |  Bin [31m0[m -> [32m8777[m bytes
+ app/webroot/img/glyphicons-halflings.png           |  Bin [31m0[m -> [32m12799[m bytes
+ app/webroot/img/img-rodape.png                     |  Bin [31m0[m -> [32m3696[m bytes
+ app/webroot/img/instagran.htm                      |   12 [32m+[m
+ app/webroot/img/instagran.png                      |  Bin [31m0[m -> [32m1849[m bytes
+ app/webroot/img/logo-cacau.png                     |  Bin [31m0[m -> [32m7581[m bytes
+ app/webroot/img/logo-rodape-2.png                  |  Bin [31m0[m -> [32m5724[m bytes
+ app/webroot/img/logo-rodape.jpg                    |  Bin [31m0[m -> [32m4745[m bytes
+ app/webroot/img/logo-rodape.png                    |  Bin [31m0[m -> [32m2150[m bytes
+ app/webroot/img/menu.jpg                           |  Bin [31m0[m -> [32m11467[m bytes
+ app/webroot/img/menu.png                           |  Bin [31m0[m -> [32m7556[m bytes
+ app/webroot/img/naosei.png                         |  Bin [31m0[m -> [32m1944[m bytes
+ app/webroot/img/news.jpg                           |  Bin [31m0[m -> [32m2839[m bytes
+ app/webroot/img/rede-social-rodape.png             |  Bin [31m0[m -> [32m6127[m bytes
+ app/webroot/img/test-error-icon.png                |  Bin [31m0[m -> [32m3358[m bytes
+ app/webroot/img/test-fail-icon.png                 |  Bin [31m0[m -> [32m496[m bytes
+ app/webroot/img/test-pass-icon.png                 |  Bin [31m0[m -> [32m783[m bytes
+ app/webroot/img/test-skip-icon.png                 |  Bin [31m0[m -> [32m1207[m bytes
+ app/webroot/img/twitter.png                        |  Bin [31m0[m -> [32m2097[m bytes
+ app/webroot/img/youtube.htm                        |   12 [32m+[m
+ app/webroot/img/youtube.png                        |  Bin [31m0[m -> [32m2240[m bytes
+ app/webroot/index.php                              |  108 [32m+[m
+ app/webroot/js/bootstrap.js                        | 2006 [32m++++[m
+ app/webroot/js/bootstrap.min.js                    |    7 [32m+[m
+ app/webroot/js/empty                               |    0
+ app/webroot/test.php                               |   98 [32m+[m
+ build.properties                                   |   12 [32m+[m
+ build.xml                                          |  260 [32m+[m
+ composer.json                                      |   31 [32m+[m
+ index.php                                          |   41 [32m+[m
+ lib/Cake/Cache/Cache.php                           |  545 [32m++[m
+ lib/Cake/Cache/CacheEngine.php                     |  180 [32m+[m
+ lib/Cake/Cache/Engine/ApcEngine.php                |  183 [32m+[m
+ lib/Cake/Cache/Engine/FileEngine.php               |  430 [32m+[m
+ lib/Cake/Cache/Engine/MemcacheEngine.php           |  289 [32m+[m
+ lib/Cake/Cache/Engine/RedisEngine.php              |  219 [32m+[m
+ lib/Cake/Cache/Engine/WincacheEngine.php           |  190 [32m+[m
+ lib/Cake/Cache/Engine/XcacheEngine.php             |  208 [32m+[m
+ lib/Cake/Config/cacert.pem                         | 3920 [32m++++++++[m
+ lib/Cake/Config/config.php                         |   21 [32m+[m
+ lib/Cake/Config/routes.php                         |   81 [32m+[m
+ lib/Cake/Config/unicode/casefolding/0080_00ff.php  |   72 [32m+[m
+ lib/Cake/Config/unicode/casefolding/0100_017f.php  |  105 [32m+[m
+ lib/Cake/Config/unicode/casefolding/0180_024F.php  |  147 [32m+[m
+ lib/Cake/Config/unicode/casefolding/0250_02af.php  |   40 [32m+[m
+ lib/Cake/Config/unicode/casefolding/0370_03ff.php  |  101 [32m+[m
+ lib/Cake/Config/unicode/casefolding/0400_04ff.php  |  163 [32m+[m
+ lib/Cake/Config/unicode/casefolding/0500_052f.php  |   49 [32m+[m
+ lib/Cake/Config/unicode/casefolding/0530_058f.php  |   77 [32m+[m
+ lib/Cake/Config/unicode/casefolding/1e00_1eff.php  |  167 [32m+[m
+ lib/Cake/Config/unicode/casefolding/1f00_1fff.php  |  215 [32m+[m
+ lib/Cake/Config/unicode/casefolding/2100_214f.php  |   43 [32m+[m
+ lib/Cake/Config/unicode/casefolding/2150_218f.php  |   56 [32m+[m
+ lib/Cake/Config/unicode/casefolding/2460_24ff.php  |   65 [32m+[m
+ lib/Cake/Config/unicode/casefolding/2c00_2c5f.php  |   86 [32m+[m
+ lib/Cake/Config/unicode/casefolding/2c60_2c7f.php  |   47 [32m+[m
+ lib/Cake/Config/unicode/casefolding/2c80_2cff.php  |   89 [32m+[m
+ lib/Cake/Config/unicode/casefolding/ff00_ffef.php  |   65 [32m+[m
+ lib/Cake/Configure/ConfigReaderInterface.php       |   43 [32m+[m
+ lib/Cake/Configure/IniReader.php                   |  229 [32m+[m
+ lib/Cake/Configure/PhpReader.php                   |  116 [32m+[m
+ lib/Cake/Console/Command/AclShell.php              |  613 [32m++[m
+ lib/Cake/Console/Command/ApiShell.php              |  238 [32m+[m
+ lib/Cake/Console/Command/AppShell.php              |   30 [32m+[m
+ lib/Cake/Console/Command/BakeShell.php             |  252 [32m+[m
+ lib/Cake/Console/Command/CommandListShell.php      |  175 [32m+[m
+ lib/Cake/Console/Command/ConsoleShell.php          |  515 [32m++[m
+ lib/Cake/Console/Command/I18nShell.php             |  119 [32m+[m
+ lib/Cake/Console/Command/SchemaShell.php           |  557 [32m++[m
+ lib/Cake/Console/Command/ServerShell.php           |  167 [32m+[m
+ lib/Cake/Console/Command/Task/BakeTask.php         |   92 [32m+[m
+ lib/Cake/Console/Command/Task/ControllerTask.php   |  498 [32m+[m
+ lib/Cake/Console/Command/Task/DbConfigTask.php     |  382 [32m+[m
+ lib/Cake/Console/Command/Task/ExtractTask.php      |  806 [32m++[m
+ lib/Cake/Console/Command/Task/FixtureTask.php      |  445 [32m+[m
+ lib/Cake/Console/Command/Task/ModelTask.php        | 1023 [32m+++[m
+ lib/Cake/Console/Command/Task/PluginTask.php       |  226 [32m+[m
+ lib/Cake/Console/Command/Task/ProjectTask.php      |  444 [32m+[m
+ lib/Cake/Console/Command/Task/TemplateTask.php     |  217 [32m+[m
+ lib/Cake/Console/Command/Task/TestTask.php         |  576 [32m++[m
+ lib/Cake/Console/Command/Task/ViewTask.php         |  472 [32m+[m
+ lib/Cake/Console/Command/TestShell.php             |  431 [32m+[m
+ lib/Cake/Console/Command/TestsuiteShell.php        |   99 [32m+[m
+ lib/Cake/Console/Command/UpgradeShell.php          |  860 [32m++[m
+ lib/Cake/Console/ConsoleErrorHandler.php           |  103 [32m+[m
+ lib/Cake/Console/ConsoleInput.php                  |   82 [32m+[m
+ lib/Cake/Console/ConsoleInputArgument.php          |  170 [32m+[m
+ lib/Cake/Console/ConsoleInputOption.php            |  220 [32m+[m
+ lib/Cake/Console/ConsoleInputSubcommand.php        |  120 [32m+[m
+ lib/Cake/Console/ConsoleOptionParser.php           |  652 [32m++[m
+ lib/Cake/Console/ConsoleOutput.php                 |  293 [32m+[m
+ lib/Cake/Console/HelpFormatter.php                 |  201 [32m+[m
+ lib/Cake/Console/Shell.php                         |  890 [32m++[m
+ lib/Cake/Console/ShellDispatcher.php               |  367 [32m+[m
+ lib/Cake/Console/TaskCollection.php                |  100 [32m+[m
+ .../default/actions/controller_actions.ctp         |  152 [32m+[m
+ .../Templates/default/classes/controller.ctp       |   80 [32m+[m
+ .../Console/Templates/default/classes/fixture.ctp  |   65 [32m+[m
+ .../Console/Templates/default/classes/model.ctp    |  189 [32m+[m
+ .../Console/Templates/default/classes/test.ctp     |   81 [32m+[m
+ lib/Cake/Console/Templates/default/views/form.ctp  |   65 [32m+[m
+ lib/Cake/Console/Templates/default/views/index.ctp |   91 [32m+[m
+ lib/Cake/Console/Templates/default/views/view.ctp  |  136 [32m+[m
+ lib/Cake/Console/Templates/skel/.htaccess          |    5 [32m+[m
+ .../Templates/skel/Config/Schema/db_acl.php        |   60 [32m+[m
+ .../Templates/skel/Config/Schema/db_acl.sql        |   41 [32m+[m
+ .../Console/Templates/skel/Config/Schema/i18n.php  |   41 [32m+[m
+ .../Console/Templates/skel/Config/Schema/i18n.sql  |   27 [32m+[m
+ .../Templates/skel/Config/Schema/sessions.php      |   36 [32m+[m
+ .../Templates/skel/Config/Schema/sessions.sql      |   17 [32m+[m
+ lib/Cake/Console/Templates/skel/Config/acl.ini.php |   57 [32m+[m
+ lib/Cake/Console/Templates/skel/Config/acl.php     |  124 [32m+[m
+ .../Console/Templates/skel/Config/bootstrap.php    |   98 [32m+[m
+ lib/Cake/Console/Templates/skel/Config/core.php    |  368 [32m+[m
+ .../Templates/skel/Config/database.php.default     |   74 [32m+[m
+ .../Templates/skel/Config/email.php.default        |   83 [32m+[m
+ lib/Cake/Console/Templates/skel/Config/routes.php  |   35 [32m+[m
+ .../Templates/skel/Console/Command/AppShell.php    |   21 [32m+[m
+ .../Templates/skel/Console/Command/Task/empty      |    0
+ .../Console/Templates/skel/Console/Templates/empty |    0
+ lib/Cake/Console/Templates/skel/Console/cake       |   41 [32m+[m
+ lib/Cake/Console/Templates/skel/Console/cake.bat   |   30 [32m+[m
+ lib/Cake/Console/Templates/skel/Console/cake.php   |   35 [32m+[m
+ .../Templates/skel/Controller/AppController.php    |   25 [32m+[m
+ .../Templates/skel/Controller/Component/empty      |    0
+ .../Templates/skel/Controller/PagesController.php  |   68 [32m+[m
+ lib/Cake/Console/Templates/skel/Lib/empty          |    0
+ .../Templates/skel/Locale/eng/LC_MESSAGES/empty    |    0
+ lib/Cake/Console/Templates/skel/Model/AppModel.php |   24 [32m+[m
+ .../Console/Templates/skel/Model/Behavior/empty    |    0
+ .../Console/Templates/skel/Model/Datasource/empty  |    0
+ lib/Cake/Console/Templates/skel/Plugin/empty       |    0
+ .../skel/Test/Case/Controller/Component/empty      |    0
+ .../Templates/skel/Test/Case/Model/Behavior/empty  |    0
+ .../Templates/skel/Test/Case/View/Helper/empty     |    0
+ lib/Cake/Console/Templates/skel/Test/Fixture/empty |    0
+ lib/Cake/Console/Templates/skel/Vendor/empty       |    0
+ .../Console/Templates/skel/View/Elements/empty     |    0
+ .../Templates/skel/View/Emails/html/default.ctp    |   25 [32m+[m
+ .../Templates/skel/View/Emails/text/default.ctp    |   19 [32m+[m
+ .../Templates/skel/View/Errors/error400.ctp        |   22 [32m+[m
+ .../Templates/skel/View/Errors/error500.ctp        |   19 [32m+[m
+ .../Templates/skel/View/Helper/AppHelper.php       |   24 [32m+[m
+ .../skel/View/Layouts/Emails/html/default.ctp      |   20 [32m+[m
+ .../skel/View/Layouts/Emails/text/default.ctp      |   21 [32m+[m
+ .../Console/Templates/skel/View/Layouts/ajax.ctp   |   10 [32m+[m
+ .../Templates/skel/View/Layouts/default.ctp        |   52 [32m+[m
+ .../Console/Templates/skel/View/Layouts/error.ctp  |   52 [32m+[m
+ .../Console/Templates/skel/View/Layouts/flash.ctp  |   28 [32m+[m
+ .../Templates/skel/View/Layouts/js/default.ctp     |    2 [32m+[m
+ .../Templates/skel/View/Layouts/rss/default.ctp    |   13 [32m+[m
+ .../Templates/skel/View/Layouts/xml/default.ctp    |    1 [32m+[m
+ .../Console/Templates/skel/View/Pages/home.ctp     |  233 [32m+[m
+ .../Console/Templates/skel/View/Scaffolds/empty    |    0
+ lib/Cake/Console/Templates/skel/index.php          |   10 [32m+[m
+ lib/Cake/Console/Templates/skel/webroot/.htaccess  |    6 [32m+[m
+ .../Templates/skel/webroot/css/cake.generic.css    |  742 [32m++[m
+ .../Console/Templates/skel/webroot/favicon.ico     |  Bin [31m0[m -> [32m372[m bytes
+ .../Console/Templates/skel/webroot/files/empty     |    0
+ .../Templates/skel/webroot/img/cake.icon.png       |  Bin [31m0[m -> [32m943[m bytes
+ .../Templates/skel/webroot/img/cake.power.gif      |  Bin [31m0[m -> [32m201[m bytes
+ .../Templates/skel/webroot/img/test-error-icon.png |  Bin [31m0[m -> [32m3358[m bytes
+ .../Templates/skel/webroot/img/test-fail-icon.png  |  Bin [31m0[m -> [32m496[m bytes
+ .../Templates/skel/webroot/img/test-pass-icon.png  |  Bin [31m0[m -> [32m783[m bytes
+ .../Templates/skel/webroot/img/test-skip-icon.png  |  Bin [31m0[m -> [32m1207[m bytes
+ lib/Cake/Console/Templates/skel/webroot/index.php  |   99 [32m+[m
+ lib/Cake/Console/Templates/skel/webroot/js/empty   |    0
+ lib/Cake/Console/Templates/skel/webroot/test.php   |   89 [32m+[m
+ lib/Cake/Console/cake                              |   41 [32m+[m
+ lib/Cake/Console/cake.bat                          |   31 [32m+[m
+ lib/Cake/Console/cake.php                          |   49 [32m+[m
+ lib/Cake/Controller/CakeErrorController.php        |   62 [32m+[m
+ lib/Cake/Controller/Component.php                  |  166 [32m+[m
+ lib/Cake/Controller/Component/Acl/AclInterface.php |   73 [32m+[m
+ lib/Cake/Controller/Component/Acl/DbAcl.php        |  163 [32m+[m
+ lib/Cake/Controller/Component/Acl/IniAcl.php       |  174 [32m+[m
+ lib/Cake/Controller/Component/Acl/PhpAcl.php       |  557 [32m++[m
+ lib/Cake/Controller/Component/AclComponent.php     |  180 [32m+[m
+ .../Component/Auth/AbstractPasswordHasher.php      |   74 [32m+[m
+ .../Controller/Component/Auth/ActionsAuthorize.php |   43 [32m+[m
+ .../Controller/Component/Auth/BaseAuthenticate.php |  219 [32m+[m
+ .../Controller/Component/Auth/BaseAuthorize.php    |  164 [32m+[m
+ .../Component/Auth/BasicAuthenticate.php           |  110 [32m+[m
+ .../Component/Auth/BlowfishAuthenticate.php        |   55 [32m+[m
+ .../Component/Auth/BlowfishPasswordHasher.php      |   50 [32m+[m
+ .../Component/Auth/ControllerAuthorize.php         |   68 [32m+[m
+ .../Controller/Component/Auth/CrudAuthorize.php    |  103 [32m+[m
+ .../Component/Auth/DigestAuthenticate.php          |  226 [32m+[m
+ .../Controller/Component/Auth/FormAuthenticate.php |   84 [32m+[m
+ .../Component/Auth/SimplePasswordHasher.php        |   57 [32m+[m
+ lib/Cake/Controller/Component/AuthComponent.php    |  827 [32m++[m
+ lib/Cake/Controller/Component/CookieComponent.php  |  547 [32m++[m
+ lib/Cake/Controller/Component/EmailComponent.php   |  464 [32m+[m
+ .../Controller/Component/PaginatorComponent.php    |  426 [32m+[m
+ .../Component/RequestHandlerComponent.php          |  783 [32m++[m
+ .../Controller/Component/SecurityComponent.php     |  618 [32m++[m
+ lib/Cake/Controller/Component/SessionComponent.php |  189 [32m+[m
+ lib/Cake/Controller/ComponentCollection.php        |  140 [32m+[m
+ lib/Cake/Controller/Controller.php                 | 1243 [32m+++[m
+ lib/Cake/Controller/Scaffold.php                   |  449 [32m+[m
+ lib/Cake/Core/App.php                              |  932 [32m++[m
+ lib/Cake/Core/CakePlugin.php                       |  250 [32m+[m
+ lib/Cake/Core/Configure.php                        |  447 [32m+[m
+ lib/Cake/Core/Object.php                           |  213 [32m+[m
+ lib/Cake/Error/ErrorHandler.php                    |  301 [32m+[m
+ lib/Cake/Error/ExceptionRenderer.php               |  308 [32m+[m
+ lib/Cake/Error/exceptions.php                      |  622 [32m++[m
+ lib/Cake/Event/CakeEvent.php                       |  132 [32m+[m
+ lib/Cake/Event/CakeEventListener.php               |   48 [32m+[m
+ lib/Cake/Event/CakeEventManager.php                |  276 [32m+[m
+ lib/Cake/I18n/I18n.php                             |  630 [32m++[m
+ lib/Cake/I18n/L10n.php                             |  489 [32m+[m
+ lib/Cake/I18n/Multibyte.php                        |  878 [32m++[m
+ lib/Cake/LICENSE.txt                               |   28 [32m+[m
+ lib/Cake/Log/CakeLog.php                           |  559 [32m++[m
+ lib/Cake/Log/CakeLogInterface.php                  |   36 [32m+[m
+ lib/Cake/Log/Engine/BaseLog.php                    |   67 [32m+[m
+ lib/Cake/Log/Engine/ConsoleLog.php                 |   85 [32m+[m
+ lib/Cake/Log/Engine/FileLog.php                    |  219 [32m+[m
+ lib/Cake/Log/Engine/SyslogLog.php                  |  160 [32m+[m
+ lib/Cake/Log/LogEngineCollection.php               |   74 [32m+[m
+ lib/Cake/Model/AclNode.php                         |  182 [32m+[m
+ lib/Cake/Model/Aco.php                             |   41 [32m+[m
+ lib/Cake/Model/AcoAction.php                       |   41 [32m+[m
+ lib/Cake/Model/Aro.php                             |   41 [32m+[m
+ lib/Cake/Model/Behavior/AclBehavior.php            |  144 [32m+[m
+ lib/Cake/Model/Behavior/ContainableBehavior.php    |  431 [32m+[m
+ lib/Cake/Model/Behavior/TranslateBehavior.php      |  696 [32m++[m
+ lib/Cake/Model/Behavior/TreeBehavior.php           | 1073 [32m+++[m
+ lib/Cake/Model/BehaviorCollection.php              |  296 [32m+[m
+ lib/Cake/Model/CakeSchema.php                      |  719 [32m++[m
+ lib/Cake/Model/ConnectionManager.php               |  270 [32m+[m
+ lib/Cake/Model/Datasource/CakeSession.php          |  708 [32m++[m
+ lib/Cake/Model/Datasource/DataSource.php           |  442 [32m+[m
+ lib/Cake/Model/Datasource/Database/Mysql.php       |  791 [32m++[m
+ lib/Cake/Model/Datasource/Database/Postgres.php    |  953 [32m++[m
+ lib/Cake/Model/Datasource/Database/Sqlite.php      |  585 [32m++[m
+ lib/Cake/Model/Datasource/Database/Sqlserver.php   |  798 [32m++[m
+ lib/Cake/Model/Datasource/DboSource.php            | 3315 [32m+++++++[m
+ lib/Cake/Model/Datasource/Session/CacheSession.php |   89 [32m+[m
+ .../Session/CakeSessionHandlerInterface.php        |   73 [32m+[m
+ .../Model/Datasource/Session/DatabaseSession.php   |  145 [32m+[m
+ lib/Cake/Model/I18nModel.php                       |   47 [32m+[m
+ lib/Cake/Model/Model.php                           | 3737 [32m++++++++[m
+ lib/Cake/Model/ModelBehavior.php                   |  240 [32m+[m
+ lib/Cake/Model/ModelValidator.php                  |  605 [32m++[m
+ lib/Cake/Model/Permission.php                      |  259 [32m+[m
+ lib/Cake/Model/Validator/CakeValidationRule.php    |  350 [32m+[m
+ lib/Cake/Model/Validator/CakeValidationSet.php     |  366 [32m+[m
+ lib/Cake/Network/CakeRequest.php                   |  997 [32m++[m
+ lib/Cake/Network/CakeResponse.php                  | 1431 [32m+++[m
+ lib/Cake/Network/CakeSocket.php                    |  389 [32m+[m
+ lib/Cake/Network/Email/AbstractTransport.php       |   75 [32m+[m
+ lib/Cake/Network/Email/CakeEmail.php               | 1694 [32m++++[m
+ lib/Cake/Network/Email/DebugTransport.php          |   40 [32m+[m
+ lib/Cake/Network/Email/MailTransport.php           |   78 [32m+[m
+ lib/Cake/Network/Email/SmtpTransport.php           |  257 [32m+[m
+ lib/Cake/Network/Http/BasicAuthentication.php      |   65 [32m+[m
+ lib/Cake/Network/Http/DigestAuthentication.php     |  104 [32m+[m
+ lib/Cake/Network/Http/HttpResponse.php             |   35 [32m+[m
+ lib/Cake/Network/Http/HttpSocket.php               | 1032 [32m+++[m
+ lib/Cake/Network/Http/HttpSocketResponse.php       |  444 [32m+[m
+ lib/Cake/Routing/Dispatcher.php                    |  265 [32m+[m
+ lib/Cake/Routing/DispatcherFilter.php              |   86 [32m+[m
+ lib/Cake/Routing/Filter/AssetDispatcher.php        |  170 [32m+[m
+ lib/Cake/Routing/Filter/CacheDispatcher.php        |   73 [32m+[m
+ lib/Cake/Routing/Route/CakeRoute.php               |  540 [32m++[m
+ lib/Cake/Routing/Route/PluginShortRoute.php        |   59 [32m+[m
+ lib/Cake/Routing/Route/RedirectRoute.php           |  125 [32m+[m
+ lib/Cake/Routing/Router.php                        | 1237 [32m+++[m
+ lib/Cake/Test/Case/AllBehaviorsTest.php            |   42 [32m+[m
+ lib/Cake/Test/Case/AllCacheTest.php                |   39 [32m+[m
+ lib/Cake/Test/Case/AllComponentsTest.php           |   41 [32m+[m
+ lib/Cake/Test/Case/AllConfigureTest.php            |   39 [32m+[m
+ lib/Cake/Test/Case/AllConsoleTest.php              |   43 [32m+[m
+ lib/Cake/Test/Case/AllControllerTest.php           |   43 [32m+[m
+ lib/Cake/Test/Case/AllCoreTest.php                 |   39 [32m+[m
+ lib/Cake/Test/Case/AllDatabaseTest.php             |   55 [32m+[m
+ lib/Cake/Test/Case/AllDbRelatedTest.php            |   49 [32m+[m
+ lib/Cake/Test/Case/AllErrorTest.php                |   41 [32m+[m
+ lib/Cake/Test/Case/AllEventTest.php                |   38 [32m+[m
+ lib/Cake/Test/Case/AllHelpersTest.php              |   41 [32m+[m
+ lib/Cake/Test/Case/AllI18nTest.php                 |   39 [32m+[m
+ lib/Cake/Test/Case/AllLogTest.php                  |   39 [32m+[m
+ lib/Cake/Test/Case/AllNetworkTest.php              |   41 [32m+[m
+ lib/Cake/Test/Case/AllRoutingTest.php              |   43 [32m+[m
+ lib/Cake/Test/Case/AllTestSuiteTest.php            |   39 [32m+[m
+ lib/Cake/Test/Case/AllTestsTest.php                |   60 [32m+[m
+ lib/Cake/Test/Case/AllUtilityTest.php              |   38 [32m+[m
+ lib/Cake/Test/Case/AllViewTest.php                 |   39 [32m+[m
+ lib/Cake/Test/Case/BasicsTest.php                  |  995 [32m++[m
+ lib/Cake/Test/Case/Cache/CacheTest.php             |  492 [32m+[m
+ lib/Cake/Test/Case/Cache/Engine/ApcEngineTest.php  |  276 [32m+[m
+ lib/Cake/Test/Case/Cache/Engine/FileEngineTest.php |  551 [32m++[m
+ .../Test/Case/Cache/Engine/MemcacheEngineTest.php  |  482 [32m+[m
+ .../Test/Case/Cache/Engine/RedisEngineTest.php     |  337 [32m+[m
+ .../Test/Case/Cache/Engine/WincacheEngineTest.php  |  262 [32m+[m
+ .../Test/Case/Cache/Engine/XcacheEngineTest.php    |  271 [32m+[m
+ lib/Cake/Test/Case/Configure/IniReaderTest.php     |  304 [32m+[m
+ lib/Cake/Test/Case/Configure/PhpReaderTest.php     |  193 [32m+[m
+ lib/Cake/Test/Case/Console/AllConsoleLibsTest.php  |   47 [32m+[m
+ lib/Cake/Test/Case/Console/AllConsoleTest.php      |   43 [32m+[m
+ lib/Cake/Test/Case/Console/AllShellsTest.php       |   41 [32m+[m
+ lib/Cake/Test/Case/Console/AllTasksTest.php        |   40 [32m+[m
+ .../Test/Case/Console/Command/AclShellTest.php     |  311 [32m+[m
+ .../Test/Case/Console/Command/ApiShellTest.php     |   95 [32m+[m
+ .../Test/Case/Console/Command/BakeShellTest.php    |  119 [32m+[m
+ .../Case/Console/Command/CommandListShellTest.php  |  126 [32m+[m
+ .../Test/Case/Console/Command/SchemaShellTest.php  |  648 [32m++[m
+ .../Console/Command/Task/ControllerTaskTest.php    |  618 [32m++[m
+ .../Case/Console/Command/Task/DbConfigTaskTest.php |  132 [32m+[m
+ .../Case/Console/Command/Task/ExtractTaskTest.php  |  491 [32m+[m
+ .../Case/Console/Command/Task/FixtureTaskTest.php  |  455 [32m+[m
+ .../Case/Console/Command/Task/ModelTaskTest.php    | 1225 [32m+++[m
+ .../Case/Console/Command/Task/PluginTaskTest.php   |  206 [32m+[m
+ .../Case/Console/Command/Task/ProjectTaskTest.php  |  386 [32m+[m
+ .../Case/Console/Command/Task/TemplateTaskTest.php |  164 [32m+[m
+ .../Case/Console/Command/Task/TestTaskTest.php     |  751 [32m++[m
+ .../Case/Console/Command/Task/ViewTaskTest.php     |  699 [32m++[m
+ .../Test/Case/Console/Command/TestShellTest.php    |  344 [32m+[m
+ .../Test/Case/Console/ConsoleErrorHandlerTest.php  |  150 [32m+[m
+ .../Test/Case/Console/ConsoleOptionParserTest.php  |  629 [32m++[m
+ lib/Cake/Test/Case/Console/ConsoleOutputTest.php   |  246 [32m+[m
+ lib/Cake/Test/Case/Console/HelpFormatterTest.php   |  509 [32m++[m
+ lib/Cake/Test/Case/Console/ShellDispatcherTest.php |  571 [32m++[m
+ lib/Cake/Test/Case/Console/ShellTest.php           |  899 [32m++[m
+ lib/Cake/Test/Case/Console/TaskCollectionTest.php  |  155 [32m+[m
+ .../Case/Controller/Component/Acl/DbAclTest.php    |  551 [32m++[m
+ .../Case/Controller/Component/Acl/IniAclTest.php   |   68 [32m+[m
+ .../Case/Controller/Component/Acl/PhpAclTest.php   |  347 [32m+[m
+ .../Case/Controller/Component/AclComponentTest.php |   91 [32m+[m
+ .../Component/Auth/ActionsAuthorizeTest.php        |  197 [32m+[m
+ .../Component/Auth/BasicAuthenticateTest.php       |  226 [32m+[m
+ .../Component/Auth/BlowfishAuthenticateTest.php    |  208 [32m+[m
+ .../Component/Auth/ControllerAuthorizeTest.php     |   88 [32m+[m
+ .../Component/Auth/CrudAuthorizeTest.php           |  189 [32m+[m
+ .../Component/Auth/DigestAuthenticateTest.php      |  287 [32m+[m
+ .../Component/Auth/FormAuthenticateTest.php        |  316 [32m+[m
+ .../Controller/Component/AuthComponentTest.php     | 1520 [32m+++[m
+ .../Controller/Component/CookieComponentTest.php   |  741 [32m++[m
+ .../Controller/Component/EmailComponentTest.php    |  882 [32m++[m
+ .../Component/PaginatorComponentTest.php           | 1411 [32m+++[m
+ .../Component/RequestHandlerComponentTest.php      |  980 [32m++[m
+ .../Controller/Component/SecurityComponentTest.php | 1397 [32m+++[m
+ .../Controller/Component/SessionComponentTest.php  |  295 [32m+[m
+ .../Case/Controller/ComponentCollectionTest.php    |  178 [32m+[m
+ lib/Cake/Test/Case/Controller/ComponentTest.php    |  289 [32m+[m
+ .../Case/Controller/ControllerMergeVarsTest.php    |  251 [32m+[m
+ lib/Cake/Test/Case/Controller/ControllerTest.php   | 1446 [32m+++[m
+ .../Test/Case/Controller/PagesControllerTest.php   |   78 [32m+[m
+ lib/Cake/Test/Case/Controller/ScaffoldTest.php     |  345 [32m+[m
+ lib/Cake/Test/Case/Core/AppTest.php                |  850 [32m++[m
+ lib/Cake/Test/Case/Core/CakePluginTest.php         |  281 [32m+[m
+ lib/Cake/Test/Case/Core/ConfigureTest.php          |  483 [32m+[m
+ lib/Cake/Test/Case/Core/ObjectTest.php             |  679 [32m++[m
+ lib/Cake/Test/Case/Error/ErrorHandlerTest.php      |  323 [32m+[m
+ lib/Cake/Test/Case/Error/ExceptionRendererTest.php |  811 [32m++[m
+ lib/Cake/Test/Case/Event/CakeEventManagerTest.php  |  415 [32m+[m
+ lib/Cake/Test/Case/Event/CakeEventTest.php         |   84 [32m+[m
+ lib/Cake/Test/Case/I18n/I18nTest.php               | 1978 [32m++++[m
+ lib/Cake/Test/Case/I18n/L10nTest.php               |  992 [32m++[m
+ lib/Cake/Test/Case/I18n/MultibyteTest.php          | 9228 [32m+++++++++++++++++++[m
+ lib/Cake/Test/Case/Log/CakeLogTest.php             |  722 [32m++[m
+ lib/Cake/Test/Case/Log/Engine/ConsoleLogTest.php   |  146 [32m+[m
+ lib/Cake/Test/Case/Log/Engine/FileLogTest.php      |  194 [32m+[m
+ lib/Cake/Test/Case/Log/Engine/SyslogLogTest.php    |   94 [32m+[m
+ lib/Cake/Test/Case/Log/LogEngineCollectionTest.php |   89 [32m+[m
+ lib/Cake/Test/Case/Model/AclNodeTest.php           |  356 [32m+[m
+ .../Test/Case/Model/Behavior/AclBehaviorTest.php   |  482 [32m+[m
+ .../Model/Behavior/ContainableBehaviorTest.php     | 3759 [32m++++++++[m
+ .../Case/Model/Behavior/TranslateBehaviorTest.php  | 1324 [32m+++[m
+ .../Case/Model/Behavior/TreeBehaviorAfterTest.php  |   75 [32m+[m
+ .../Case/Model/Behavior/TreeBehaviorNumberTest.php | 1561 [32m++++[m
+ .../Case/Model/Behavior/TreeBehaviorScopedTest.php |  591 [32m++[m
+ .../Test/Case/Model/Behavior/TreeBehaviorTest.php  |   42 [32m+[m
+ .../Case/Model/Behavior/TreeBehaviorUuidTest.php   |  298 [32m+[m
+ .../Test/Case/Model/BehaviorCollectionTest.php     | 1263 [32m+++[m
+ lib/Cake/Test/Case/Model/CakeSchemaTest.php        | 1030 [32m+++[m
+ lib/Cake/Test/Case/Model/ConnectionManagerTest.php |  345 [32m+[m
+ .../Test/Case/Model/Datasource/CakeSessionTest.php |  787 [32m++[m
+ .../Test/Case/Model/Datasource/DataSourceTest.php  |  249 [32m+[m
+ .../Case/Model/Datasource/Database/MysqlTest.php   | 3867 [32m++++++++[m
+ .../Model/Datasource/Database/PostgresTest.php     | 1066 [32m+++[m
+ .../Case/Model/Datasource/Database/SqliteTest.php  |  511 [32m++[m
+ .../Model/Datasource/Database/SqlserverTest.php    |  694 [32m++[m
+ .../Test/Case/Model/Datasource/DboSourceTest.php   | 1381 [32m+++[m
+ .../Model/Datasource/Session/CacheSessionTest.php  |  121 [32m+[m
+ .../Datasource/Session/DatabaseSessionTest.php     |  194 [32m+[m
+ .../Test/Case/Model/ModelCrossSchemaHabtmTest.php  |  238 [32m+[m
+ lib/Cake/Test/Case/Model/ModelDeleteTest.php       |  950 [32m++[m
+ lib/Cake/Test/Case/Model/ModelIntegrationTest.php  | 2444 [32m+++++[m
+ lib/Cake/Test/Case/Model/ModelReadTest.php         | 7995 [32m++++++++++++++++[m
+ lib/Cake/Test/Case/Model/ModelTest.php             |   46 [32m+[m
+ lib/Cake/Test/Case/Model/ModelTestBase.php         |   96 [32m+[m
+ lib/Cake/Test/Case/Model/ModelValidationTest.php   | 2380 [32m+++++[m
+ lib/Cake/Test/Case/Model/ModelWriteTest.php        | 7209 [32m+++++++++++++++[m
+ .../Model/Validator/CakeValidationRuleTest.php     |  198 [32m+[m
+ .../Case/Model/Validator/CakeValidationSetTest.php |  337 [32m+[m
+ lib/Cake/Test/Case/Model/models.php                | 4996 [32m++++++++++[m
+ lib/Cake/Test/Case/Network/CakeRequestTest.php     | 2281 [32m+++++[m
+ lib/Cake/Test/Case/Network/CakeResponseTest.php    | 1610 [32m++++[m
+ lib/Cake/Test/Case/Network/CakeSocketTest.php      |  373 [32m+[m
+ lib/Cake/Test/Case/Network/Email/CakeEmailTest.php | 2256 [32m+++++[m
+ .../Test/Case/Network/Email/DebugTransportTest.php |   78 [32m+[m
+ .../Test/Case/Network/Email/MailTransportTest.php  |   91 [32m+[m
+ .../Test/Case/Network/Email/SmtpTransportTest.php  |  368 [32m+[m
+ .../Case/Network/Http/BasicAuthenticationTest.php  |   63 [32m+[m
+ .../Case/Network/Http/DigestAuthenticationTest.php |  201 [32m+[m
+ .../Test/Case/Network/Http/HttpResponseTest.php    |  582 [32m++[m
+ lib/Cake/Test/Case/Network/Http/HttpSocketTest.php | 1764 [32m++++[m
+ lib/Cake/Test/Case/Routing/DispatcherTest.php      | 1676 [32m++++[m
+ .../Case/Routing/Filter/AssetDispatcherTest.php    |  192 [32m+[m
+ lib/Cake/Test/Case/Routing/Route/CakeRouteTest.php |  939 [32m++[m
+ .../Case/Routing/Route/PluginShortRouteTest.php    |   71 [32m+[m
+ .../Test/Case/Routing/Route/RedirectRouteTest.php  |  122 [32m+[m
+ lib/Cake/Test/Case/Routing/RouterTest.php          | 2821 [32m++++++[m
+ lib/Cake/Test/Case/TestSuite/CakeTestCaseTest.php  |  435 [32m+[m
+ .../Test/Case/TestSuite/CakeTestFixtureTest.php    |  574 [32m++[m
+ lib/Cake/Test/Case/TestSuite/CakeTestSuiteTest.php |  105 [32m+[m
+ .../Test/Case/TestSuite/ControllerTestCaseTest.php |  585 [32m++[m
+ .../Test/Case/TestSuite/HtmlCoverageReportTest.php |  237 [32m+[m
+ lib/Cake/Test/Case/Utility/CakeNumberTest.php      |  789 [32m++[m
+ lib/Cake/Test/Case/Utility/CakeTimeTest.php        | 1174 [32m+++[m
+ lib/Cake/Test/Case/Utility/ClassRegistryTest.php   |  314 [32m+[m
+ lib/Cake/Test/Case/Utility/DebuggerTest.php        |  593 [32m++[m
+ lib/Cake/Test/Case/Utility/FileTest.php            |  563 [32m++[m
+ lib/Cake/Test/Case/Utility/FolderTest.php          | 1176 [32m+++[m
+ lib/Cake/Test/Case/Utility/HashTest.php            | 2453 [32m+++++[m
+ lib/Cake/Test/Case/Utility/InflectorTest.php       |  471 [32m+[m
+ .../Test/Case/Utility/ObjectCollectionTest.php     |  594 [32m++[m
+ lib/Cake/Test/Case/Utility/SanitizeTest.php        |  448 [32m+[m
+ lib/Cake/Test/Case/Utility/SecurityTest.php        |  305 [32m+[m
+ lib/Cake/Test/Case/Utility/SetTest.php             | 3564 [32m++++++++[m
+ lib/Cake/Test/Case/Utility/StringTest.php          |  802 [32m++[m
+ lib/Cake/Test/Case/Utility/ValidationTest.php      | 2394 [32m+++++[m
+ lib/Cake/Test/Case/Utility/XmlTest.php             | 1215 [32m+++[m
+ lib/Cake/Test/Case/View/Helper/CacheHelperTest.php |  649 [32m++[m
+ lib/Cake/Test/Case/View/Helper/FormHelperTest.php  | 9627 [32m++++++++++++++++++++[m
+ lib/Cake/Test/Case/View/Helper/HtmlHelperTest.php  | 2254 [32m+++++[m
+ .../Case/View/Helper/JqueryEngineHelperTest.php    |  400 [32m+[m
+ lib/Cake/Test/Case/View/Helper/JsHelperTest.php    |  953 [32m++[m
+ .../Case/View/Helper/MootoolsEngineHelperTest.php  |  382 [32m+[m
+ .../Test/Case/View/Helper/NumberHelperTest.php     |  106 [32m+[m
+ .../Test/Case/View/Helper/PaginatorHelperTest.php  | 2719 [32m++++++[m
+ .../Case/View/Helper/PrototypeEngineHelperTest.php |  390 [32m+[m
+ lib/Cake/Test/Case/View/Helper/RssHelperTest.php   |  780 [32m++[m
+ .../Test/Case/View/Helper/SessionHelperTest.php    |  191 [32m+[m
+ lib/Cake/Test/Case/View/Helper/TextHelperTest.php  |  472 [32m+[m
+ lib/Cake/Test/Case/View/Helper/TimeHelperTest.php  |  180 [32m+[m
+ lib/Cake/Test/Case/View/HelperCollectionTest.php   |  192 [32m+[m
+ lib/Cake/Test/Case/View/HelperTest.php             | 1003 [32m++[m
+ lib/Cake/Test/Case/View/JsonViewTest.php           |  309 [32m+[m
+ lib/Cake/Test/Case/View/MediaViewTest.php          |  149 [32m+[m
+ lib/Cake/Test/Case/View/ScaffoldViewTest.php       |  463 [32m+[m
+ lib/Cake/Test/Case/View/ThemeViewTest.php          |  264 [32m+[m
+ lib/Cake/Test/Case/View/ViewTest.php               | 1689 [32m++++[m
+ lib/Cake/Test/Case/View/XmlViewTest.php            |  196 [32m+[m
+ lib/Cake/Test/Fixture/AccountFixture.php           |   49 [32m+[m
+ lib/Cake/Test/Fixture/AcoActionFixture.php         |   47 [32m+[m
+ lib/Cake/Test/Fixture/AcoFixture.php               |   60 [32m+[m
+ lib/Cake/Test/Fixture/AcoTwoFixture.php            |   58 [32m+[m
+ lib/Cake/Test/Fixture/AdFixture.php                |   55 [32m+[m
+ lib/Cake/Test/Fixture/AdvertisementFixture.php     |   47 [32m+[m
+ lib/Cake/Test/Fixture/AfterTreeFixture.php         |   54 [32m+[m
+ lib/Cake/Test/Fixture/AnotherArticleFixture.php    |   48 [32m+[m
+ lib/Cake/Test/Fixture/AppleFixture.php             |   56 [32m+[m
+ lib/Cake/Test/Fixture/ArmorFixture.php             |   58 [32m+[m
+ lib/Cake/Test/Fixture/ArmorsPlayerFixture.php      |   59 [32m+[m
+ lib/Cake/Test/Fixture/AroFixture.php               |   52 [32m+[m
+ lib/Cake/Test/Fixture/AroTwoFixture.php            |   58 [32m+[m
+ lib/Cake/Test/Fixture/ArosAcoFixture.php           |   47 [32m+[m
+ lib/Cake/Test/Fixture/ArosAcoTwoFixture.php        |   68 [32m+[m
+ lib/Cake/Test/Fixture/ArticleFeaturedFixture.php   |   51 [32m+[m
+ .../Test/Fixture/ArticleFeaturedsTagsFixture.php   |   36 [32m+[m
+ lib/Cake/Test/Fixture/ArticleFixture.php           |   52 [32m+[m
+ lib/Cake/Test/Fixture/ArticlesTagFixture.php       |   48 [32m+[m
+ lib/Cake/Test/Fixture/AssertTagsTestCase.php       |  118 [32m+[m
+ lib/Cake/Test/Fixture/AttachmentFixture.php        |   47 [32m+[m
+ .../Test/Fixture/AuthUserCustomFieldFixture.php    |   52 [32m+[m
+ lib/Cake/Test/Fixture/AuthUserFixture.php          |   52 [32m+[m
+ lib/Cake/Test/Fixture/AuthorFixture.php            |   50 [32m+[m
+ lib/Cake/Test/Fixture/BakeArticleFixture.php       |   47 [32m+[m
+ .../Test/Fixture/BakeArticlesBakeTagFixture.php    |   43 [32m+[m
+ lib/Cake/Test/Fixture/BakeCommentFixture.php       |   47 [32m+[m
+ lib/Cake/Test/Fixture/BakeTagFixture.php           |   44 [32m+[m
+ lib/Cake/Test/Fixture/BasketFixture.php            |   48 [32m+[m
+ lib/Cake/Test/Fixture/BidFixture.php               |   49 [32m+[m
+ lib/Cake/Test/Fixture/BiddingFixture.php           |   48 [32m+[m
+ lib/Cake/Test/Fixture/BiddingMessageFixture.php    |   47 [32m+[m
+ lib/Cake/Test/Fixture/BinaryTestFixture.php        |   42 [32m+[m
+ lib/Cake/Test/Fixture/BookFixture.php              |   48 [32m+[m
+ lib/Cake/Test/Fixture/CacheTestModelFixture.php    |   36 [32m+[m
+ lib/Cake/Test/Fixture/CakeSessionFixture.php       |   41 [32m+[m
+ lib/Cake/Test/Fixture/CallbackFixture.php          |   49 [32m+[m
+ lib/Cake/Test/Fixture/CampaignFixture.php          |   47 [32m+[m
+ lib/Cake/Test/Fixture/CategoryFixture.php          |   54 [32m+[m
+ lib/Cake/Test/Fixture/CategoryThreadFixture.php    |   53 [32m+[m
+ lib/Cake/Test/Fixture/CdFixture.php                |   46 [32m+[m
+ lib/Cake/Test/Fixture/CommentFixture.php           |   54 [32m+[m
+ lib/Cake/Test/Fixture/ContentAccountFixture.php    |   52 [32m+[m
+ lib/Cake/Test/Fixture/ContentFixture.php           |   49 [32m+[m
+ lib/Cake/Test/Fixture/CounterCachePostFixture.php  |   38 [32m+[m
+ ...ounterCachePostNonstandardPrimaryKeyFixture.php |   37 [32m+[m
+ lib/Cake/Test/Fixture/CounterCacheUserFixture.php  |   37 [32m+[m
+ ...ounterCacheUserNonstandardPrimaryKeyFixture.php |   36 [32m+[m
+ lib/Cake/Test/Fixture/DataTestFixture.php          |   52 [32m+[m
+ lib/Cake/Test/Fixture/DatatypeFixture.php          |   46 [32m+[m
+ lib/Cake/Test/Fixture/DependencyFixture.php        |   45 [32m+[m
+ lib/Cake/Test/Fixture/DeviceFixture.php            |   48 [32m+[m
+ .../Test/Fixture/DeviceTypeCategoryFixture.php     |   44 [32m+[m
+ lib/Cake/Test/Fixture/DeviceTypeFixture.php        |   51 [32m+[m
+ lib/Cake/Test/Fixture/DocumentDirectoryFixture.php |   44 [32m+[m
+ lib/Cake/Test/Fixture/DocumentFixture.php          |   45 [32m+[m
+ lib/Cake/Test/Fixture/DomainFixture.php            |   52 [32m+[m
+ lib/Cake/Test/Fixture/DomainsSiteFixture.php       |   53 [32m+[m
+ .../Test/Fixture/ExteriorTypeCategoryFixture.php   |   45 [32m+[m
+ lib/Cake/Test/Fixture/FeatureSetFixture.php        |   44 [32m+[m
+ lib/Cake/Test/Fixture/FeaturedFixture.php          |   50 [32m+[m
+ lib/Cake/Test/Fixture/FilmFileFixture.php          |   45 [32m+[m
+ lib/Cake/Test/Fixture/FixturizedTestCase.php       |   60 [32m+[m
+ lib/Cake/Test/Fixture/FlagTreeFixture.php          |   43 [32m+[m
+ lib/Cake/Test/Fixture/FruitFixture.php             |   50 [32m+[m
+ lib/Cake/Test/Fixture/FruitsUuidTagFixture.php     |   47 [32m+[m
+ lib/Cake/Test/Fixture/GroupUpdateAllFixture.php    |   57 [32m+[m
+ lib/Cake/Test/Fixture/GuildFixture.php             |   46 [32m+[m
+ lib/Cake/Test/Fixture/GuildsPlayerFixture.php      |   49 [32m+[m
+ lib/Cake/Test/Fixture/HomeFixture.php              |   49 [32m+[m
+ lib/Cake/Test/Fixture/ImageFixture.php             |   48 [32m+[m
+ lib/Cake/Test/Fixture/InnoFixture.php              |   49 [32m+[m
+ lib/Cake/Test/Fixture/ItemFixture.php              |   51 [32m+[m
+ lib/Cake/Test/Fixture/ItemsPortfolioFixture.php    |   50 [32m+[m
+ lib/Cake/Test/Fixture/JoinABFixture.php            |   57 [32m+[m
+ lib/Cake/Test/Fixture/JoinACFixture.php            |   57 [32m+[m
+ lib/Cake/Test/Fixture/JoinAFixture.php             |   49 [32m+[m
+ lib/Cake/Test/Fixture/JoinBFixture.php             |   48 [32m+[m
+ lib/Cake/Test/Fixture/JoinCFixture.php             |   48 [32m+[m
+ lib/Cake/Test/Fixture/JoinThingFixture.php         |   50 [32m+[m
+ lib/Cake/Test/Fixture/MessageFixture.php           |   47 [32m+[m
+ .../Test/Fixture/MyCategoriesMyProductsFixture.php |   47 [32m+[m
+ .../Test/Fixture/MyCategoriesMyUsersFixture.php    |   47 [32m+[m
+ lib/Cake/Test/Fixture/MyCategoryFixture.php        |   46 [32m+[m
+ lib/Cake/Test/Fixture/MyProductFixture.php         |   45 [32m+[m
+ lib/Cake/Test/Fixture/MyUserFixture.php            |   45 [32m+[m
+ lib/Cake/Test/Fixture/NodeFixture.php              |   47 [32m+[m
+ lib/Cake/Test/Fixture/NumberTreeFixture.php        |   42 [32m+[m
+ lib/Cake/Test/Fixture/NumberTreeTwoFixture.php     |   43 [32m+[m
+ lib/Cake/Test/Fixture/NumericArticleFixture.php    |   47 [32m+[m
+ lib/Cake/Test/Fixture/OverallFavoriteFixture.php   |   47 [32m+[m
+ lib/Cake/Test/Fixture/PersonFixture.php            |   56 [32m+[m
+ lib/Cake/Test/Fixture/PlayerFixture.php            |   49 [32m+[m
+ lib/Cake/Test/Fixture/PortfolioFixture.php         |   47 [32m+[m
+ lib/Cake/Test/Fixture/PostFixture.php              |   51 [32m+[m
+ lib/Cake/Test/Fixture/PostsTagFixture.php          |   48 [32m+[m
+ lib/Cake/Test/Fixture/PrefixTestFixture.php        |   32 [32m+[m
+ lib/Cake/Test/Fixture/PrimaryModelFixture.php      |   44 [32m+[m
+ lib/Cake/Test/Fixture/ProductFixture.php           |   53 [32m+[m
+ lib/Cake/Test/Fixture/ProductUpdateAllFixture.php  |   62 [32m+[m
+ lib/Cake/Test/Fixture/ProjectFixture.php           |   46 [32m+[m
+ lib/Cake/Test/Fixture/SampleFixture.php            |   48 [32m+[m
+ lib/Cake/Test/Fixture/SecondaryModelFixture.php    |   44 [32m+[m
+ lib/Cake/Test/Fixture/SessionFixture.php           |   43 [32m+[m
+ lib/Cake/Test/Fixture/SiteFixture.php              |   48 [32m+[m
+ lib/Cake/Test/Fixture/SomethingElseFixture.php     |   50 [32m+[m
+ lib/Cake/Test/Fixture/SomethingFixture.php         |   50 [32m+[m
+ lib/Cake/Test/Fixture/StoriesTagFixture.php        |   45 [32m+[m
+ lib/Cake/Test/Fixture/StoryFixture.php             |   45 [32m+[m
+ lib/Cake/Test/Fixture/SyfileFixture.php            |   51 [32m+[m
+ lib/Cake/Test/Fixture/TagFixture.php               |   48 [32m+[m
+ lib/Cake/Test/Fixture/TestPluginArticleFixture.php |   51 [32m+[m
+ lib/Cake/Test/Fixture/TestPluginCommentFixture.php |   54 [32m+[m
+ lib/Cake/Test/Fixture/ThePaperMonkiesFixture.php   |   42 [32m+[m
+ lib/Cake/Test/Fixture/ThreadFixture.php            |   47 [32m+[m
+ lib/Cake/Test/Fixture/TranslateArticleFixture.php  |   72 [32m+[m
+ lib/Cake/Test/Fixture/TranslateFixture.php         |   72 [32m+[m
+ lib/Cake/Test/Fixture/TranslateTableFixture.php    |   55 [32m+[m
+ .../Test/Fixture/TranslateWithPrefixFixture.php    |   76 [32m+[m
+ lib/Cake/Test/Fixture/TranslatedArticleFixture.php |   49 [32m+[m
+ lib/Cake/Test/Fixture/TranslatedItemFixture.php    |   47 [32m+[m
+ .../Test/Fixture/UnconventionalTreeFixture.php     |   41 [32m+[m
+ lib/Cake/Test/Fixture/UnderscoreFieldFixture.php   |   51 [32m+[m
+ lib/Cake/Test/Fixture/UserFixture.php              |   50 [32m+[m
+ lib/Cake/Test/Fixture/UuidFixture.php              |   50 [32m+[m
+ lib/Cake/Test/Fixture/UuidTagFixture.php           |   45 [32m+[m
+ lib/Cake/Test/Fixture/UuidTreeFixture.php          |   39 [32m+[m
+ lib/Cake/Test/Fixture/UuiditemFixture.php          |   50 [32m+[m
+ .../Test/Fixture/UuiditemsUuidportfolioFixture.php |   48 [32m+[m
+ .../UuiditemsUuidportfolioNumericidFixture.php     |   48 [32m+[m
+ lib/Cake/Test/Fixture/UuidportfolioFixture.php     |   45 [32m+[m
+ lib/Cake/Test/Fixture/rss.xml                      |   33 [32m+[m
+ lib/Cake/Test/Fixture/sample.xml                   |    9 [32m+[m
+ lib/Cake/Test/Fixture/soap_request.xml             |   12 [32m+[m
+ lib/Cake/Test/Fixture/soap_response.xml            |   12 [32m+[m
+ .../Controller/ActionsUsingSessions.ctp            |   91 [32m+[m
+ .../Controller/ActionsWithNoSessions.ctp           |   84 [32m+[m
+ .../Test/bake_compare/Controller/NoActions.ctp     |   27 [32m+[m
+ .../Controller/NoHelpersOrComponents.ctp           |   18 [32m+[m
+ lib/Cake/Test/bake_compare/Controller/Scaffold.ctp |   16 [32m+[m
+ lib/Cake/Test/test_app/Config/acl.ini              |   57 [32m+[m
+ lib/Cake/Test/test_app/Config/acl.ini.php          |   57 [32m+[m
+ lib/Cake/Test/test_app/Config/acl.php              |   70 [32m+[m
+ lib/Cake/Test/test_app/Config/empty.ini            |    1 [32m+[m
+ lib/Cake/Test/test_app/Config/empty.php            |    2 [32m+[m
+ .../Test/test_app/Config/htmlhelper_minimized.ini  |    2 [32m+[m
+ lib/Cake/Test/test_app/Config/htmlhelper_tags.php  |    9 [32m+[m
+ lib/Cake/Test/test_app/Config/nested.ini           |   17 [32m+[m
+ lib/Cake/Test/test_app/Config/no_ini_extension     |    3 [32m+[m
+ lib/Cake/Test/test_app/Config/no_php_extension     |    9 [32m+[m
+ lib/Cake/Test/test_app/Config/no_section.ini       |    2 [32m+[m
+ lib/Cake/Test/test_app/Config/routes.php           |   22 [32m+[m
+ lib/Cake/Test/test_app/Config/var_test.php         |   12 [32m+[m
+ lib/Cake/Test/test_app/Config/var_test2.php        |   13 [32m+[m
+ .../Test/test_app/Console/Command/SampleShell.php  |   34 [32m+[m
+ lib/Cake/Test/test_app/Console/Command/Task/empty  |    0
+ .../Console/Templates/test/classes/test_object.ctp |    2 [32m+[m
+ .../Console/Templates/test/views/admin_edit.ctp    |    1 [32m+[m
+ .../Test/test_app/Controller/AppController.php     |   35 [32m+[m
+ lib/Cake/Test/test_app/Controller/Component/empty  |    0
+ .../Test/test_app/Controller/PagesController.php   |   89 [32m+[m
+ .../Controller/TestAppsErrorController.php         |   14 [32m+[m
+ .../test_app/Controller/TestConfigsController.php  |   13 [32m+[m
+ .../test_app/Controller/TestsAppsController.php    |   51 [32m+[m
+ .../Controller/TestsAppsPostsController.php        |   76 [32m+[m
+ .../test_app/Error/TestAppsExceptionRenderer.php   |   21 [32m+[m
+ .../Lib/Cache/Engine/TestAppCacheEngine.php        |   49 [32m+[m
+ lib/Cake/Test/test_app/Lib/Library.php             |   25 [32m+[m
+ .../Test/test_app/Lib/Log/Engine/TestAppLog.php    |   31 [32m+[m
+ .../Test/test_app/Lib/Utility/TestUtilityClass.php |   25 [32m+[m
+ .../Locale/cache_test_po/LC_MESSAGES/default.po    |    5 [32m+[m
+ .../Locale/cache_test_po/LC_MESSAGES/dom1.po       |    8 [32m+[m
+ .../Locale/cache_test_po/LC_MESSAGES/dom2.po       |    8 [32m+[m
+ .../Locale/eng/LC_MESSAGES/validation_messages.po  |    5 [32m+[m
+ lib/Cake/Test/test_app/Locale/ja_jp/LC_TIME        |   48 [32m+[m
+ lib/Cake/Test/test_app/Locale/nld/LC_TIME          |  169 [32m+[m
+ .../Test/test_app/Locale/po/LC_MESSAGES/default.po |   76 [32m+[m
+ .../Test/test_app/Locale/po/LC_MONETARY/default.po |   18 [32m+[m
+ lib/Cake/Test/test_app/Locale/po/LC_TIME           |   60 [32m+[m
+ .../test_app/Locale/rule_0_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m673[m bytes
+ .../Locale/rule_0_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m617[m bytes
+ .../test_app/Locale/rule_0_po/LC_MESSAGES/core.po  |   21 [32m+[m
+ .../Locale/rule_0_po/LC_MESSAGES/default.po        |   24 [32m+[m
+ .../test_app/Locale/rule_10_mo/LC_MESSAGES/core.mo |  Bin [31m0[m -> [32m845[m bytes
+ .../Locale/rule_10_mo/LC_MESSAGES/default.mo       |  Bin [31m0[m -> [32m759[m bytes
+ .../test_app/Locale/rule_10_po/LC_MESSAGES/core.po |   24 [32m+[m
+ .../Locale/rule_10_po/LC_MESSAGES/default.po       |   27 [32m+[m
+ .../test_app/Locale/rule_11_mo/LC_MESSAGES/core.mo |  Bin [31m0[m -> [32m858[m bytes
+ .../Locale/rule_11_mo/LC_MESSAGES/default.mo       |  Bin [31m0[m -> [32m762[m bytes
+ .../test_app/Locale/rule_11_po/LC_MESSAGES/core.po |   25 [32m+[m
+ .../Locale/rule_11_po/LC_MESSAGES/default.po       |   25 [32m+[m
+ .../test_app/Locale/rule_12_mo/LC_MESSAGES/core.mo |  Bin [31m0[m -> [32m821[m bytes
+ .../Locale/rule_12_mo/LC_MESSAGES/default.mo       |  Bin [31m0[m -> [32m735[m bytes
+ .../test_app/Locale/rule_12_po/LC_MESSAGES/core.po |   24 [32m+[m
+ .../Locale/rule_12_po/LC_MESSAGES/default.po       |   24 [32m+[m
+ .../test_app/Locale/rule_13_mo/LC_MESSAGES/core.mo |  Bin [31m0[m -> [32m865[m bytes
+ .../Locale/rule_13_mo/LC_MESSAGES/default.mo       |  Bin [31m0[m -> [32m779[m bytes
+ .../test_app/Locale/rule_13_po/LC_MESSAGES/core.po |   24 [32m+[m
+ .../Locale/rule_13_po/LC_MESSAGES/default.po       |   24 [32m+[m
+ .../test_app/Locale/rule_14_mo/LC_MESSAGES/core.mo |  Bin [31m0[m -> [32m769[m bytes
+ .../Locale/rule_14_mo/LC_MESSAGES/default.mo       |  Bin [31m0[m -> [32m693[m bytes
+ .../test_app/Locale/rule_14_po/LC_MESSAGES/core.po |   23 [32m+[m
+ .../Locale/rule_14_po/LC_MESSAGES/default.po       |   23 [32m+[m
+ .../test_app/Locale/rule_1_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m704[m bytes
+ .../Locale/rule_1_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m638[m bytes
+ .../test_app/Locale/rule_1_po/LC_MESSAGES/core.po  |   22 [32m+[m
+ .../Locale/rule_1_po/LC_MESSAGES/default.po        |   25 [32m+[m
+ .../test_app/Locale/rule_2_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m699[m bytes
+ .../Locale/rule_2_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m633[m bytes
+ .../test_app/Locale/rule_2_po/LC_MESSAGES/core.po  |   22 [32m+[m
+ .../Locale/rule_2_po/LC_MESSAGES/default.po        |   25 [32m+[m
+ .../test_app/Locale/rule_3_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m790[m bytes
+ .../Locale/rule_3_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m714[m bytes
+ .../test_app/Locale/rule_3_po/LC_MESSAGES/core.po  |   23 [32m+[m
+ .../Locale/rule_3_po/LC_MESSAGES/default.po        |   26 [32m+[m
+ .../test_app/Locale/rule_4_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m758[m bytes
+ .../Locale/rule_4_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m682[m bytes
+ .../test_app/Locale/rule_4_po/LC_MESSAGES/core.po  |   23 [32m+[m
+ .../Locale/rule_4_po/LC_MESSAGES/default.po        |   26 [32m+[m
+ .../test_app/Locale/rule_5_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m806[m bytes
+ .../Locale/rule_5_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m658[m bytes
+ .../test_app/Locale/rule_5_po/LC_MESSAGES/core.po  |   23 [32m+[m
+ .../Locale/rule_5_po/LC_MESSAGES/default.po        |   24 [32m+[m
+ .../test_app/Locale/rule_6_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m841[m bytes
+ .../Locale/rule_6_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m765[m bytes
+ .../test_app/Locale/rule_6_po/LC_MESSAGES/core.po  |   23 [32m+[m
+ .../Locale/rule_6_po/LC_MESSAGES/default.po        |   26 [32m+[m
+ .../test_app/Locale/rule_7_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m850[m bytes
+ .../Locale/rule_7_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m774[m bytes
+ .../test_app/Locale/rule_7_po/LC_MESSAGES/core.po  |   23 [32m+[m
+ .../Locale/rule_7_po/LC_MESSAGES/default.po        |   26 [32m+[m
+ .../test_app/Locale/rule_8_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m774[m bytes
+ .../Locale/rule_8_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m698[m bytes
+ .../test_app/Locale/rule_8_po/LC_MESSAGES/core.po  |   23 [32m+[m
+ .../Locale/rule_8_po/LC_MESSAGES/default.po        |   26 [32m+[m
+ .../test_app/Locale/rule_9_mo/LC_MESSAGES/core.mo  |  Bin [31m0[m -> [32m819[m bytes
+ .../Locale/rule_9_mo/LC_MESSAGES/default.mo        |  Bin [31m0[m -> [32m743[m bytes
+ .../test_app/Locale/rule_9_po/LC_MESSAGES/core.po  |   23 [32m+[m
+ .../Locale/rule_9_po/LC_MESSAGES/default.po        |   26 [32m+[m
+ lib/Cake/Test/test_app/Locale/time_test/LC_TIME    |   42 [32m+[m
+ lib/Cake/Test/test_app/Model/AppModel.php          |   34 [32m+[m
+ .../Behavior/PersisterOneBehaviorBehavior.php      |   28 [32m+[m
+ .../Behavior/PersisterTwoBehaviorBehavior.php      |   28 [32m+[m
+ lib/Cake/Test/test_app/Model/Comment.php           |   33 [32m+[m
+ .../Model/Datasource/Database/TestLocalDriver.php  |    6 [32m+[m
+ .../Model/Datasource/Session/TestAppLibSession.php |   30 [32m+[m
+ .../test_app/Model/Datasource/Test2OtherSource.php |   27 [32m+[m
+ .../Test/test_app/Model/Datasource/Test2Source.php |   27 [32m+[m
+ lib/Cake/Test/test_app/Model/PersisterOne.php      |   61 [32m+[m
+ lib/Cake/Test/test_app/Model/PersisterTwo.php      |   32 [32m+[m
+ lib/Cake/Test/test_app/Model/Post.php              |   28 [32m+[m
+ .../test_app/Plugin/PluginJs/Config/bootstrap.php  |    2 [32m+[m
+ .../Plugin/PluginJs/webroot/js/one/plugin_one.js   |    1 [32m+[m
+ .../Plugin/PluginJs/webroot/js/plugin_js.js        |    1 [32m+[m
+ .../Plugin/TestPlugin/Config/Schema/schema.php     |   40 [32m+[m
+ .../test_app/Plugin/TestPlugin/Config/acl.ini.php  |   57 [32m+[m
+ .../Plugin/TestPlugin/Config/bootstrap.php         |    2 [32m+[m
+ .../Plugin/TestPlugin/Config/custom_config.php     |    2 [32m+[m
+ .../test_app/Plugin/TestPlugin/Config/load.php     |   19 [32m+[m
+ .../Plugin/TestPlugin/Config/more.load.php         |   19 [32m+[m
+ .../test_app/Plugin/TestPlugin/Config/nested.ini   |    4 [32m+[m
+ .../test_app/Plugin/TestPlugin/Config/routes.php   |    

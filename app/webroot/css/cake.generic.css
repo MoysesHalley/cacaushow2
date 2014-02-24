@@ -1,0 +1,214 @@
+@charset "utf-8";
+/**
+ *
+ * Generic CSS for CakePHP
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.webroot.css
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
+
+* {
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+
+/** General Style Info **/
+
+
+/** Layout **/
+#container {
+	width:100%;
+	margin: 0 auto;
+	max-width: 1020px;
+}
+
+
+#content{
+ 	/* background: #F0F0E1; */ 
+	clear: both;
+	color: #333;
+	padding: 100px 20px;
+	overflow: auto;
+	text-align: center;
+}
+
+/** containers **/
+
+
+/* Meu CSS */
+
+body {
+	background: #F0F0E1 url(../img/bg_fundo.png) no-repeat;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+
+/* Menu */
+
+.menu {
+	width: 100%;
+	height: 7.5em;
+	margin: 0; 
+	float: left;
+	font-weight: bold;
+}
+
+.menu-bg{
+	background: #CFDC33;
+	height: 3.75em;
+	width: 100%;
+	float: left;
+	box-shadow: #bbb 0em 0.2em 0.3em;
+	border-radius: 0.750em;
+	margin: 5% 0; 
+}
+
+.menu-link {
+	float: left;
+	width: 9.75%;
+	font-size: 0.750em;
+	text-align: center;
+	padding: 2% 0;
+}
+
+.menu-link-arred-esq {
+	border-radius: 0.750em 0 0 0.750em;
+}
+
+.menu-link-arred-dir {
+	border-radius: 0 0.750em 0.750em 0;
+	width: 10.25%;
+}
+
+
+.menu-link a {
+		color: #47150A;
+}
+
+.menu-link:hover, .menu-link-duplo:hover {
+	background: #47150A;
+	color: 	#CFDC33;
+}
+
+.menu-link:hover a, .menu-link-duplo:hover a {
+	color: 	#CFDC33;
+	text-decoration: underline;
+}
+
+.menu-link-duplo {
+	padding: 1.3% 0;
+}
+
+.menu-img {
+	width: 20.49%;
+	float: left;
+	margin: -4% 1% 0 0;
+	border: none;
+}
+
+.menu-img:hover {
+	background: none !important;
+}
+
+.logomarca {
+	
+}
+
+/* Menu */
+
+
+/* Rodapé */
+
+.rodape-bg-full {
+	background: #933200;
+	width: 100%;
+}
+
+.footer-rodape {
+	width: 100%;
+	max-width: 1020px;
+	margin: 0 auto;
+	height: 9.06em;
+}
+
+.logomarca-rodape {
+	margin: 6.10% 0.350em 0 0.350em;
+	width: 16.17%;
+}
+
+.link-rodape {
+	padding: 0 0 9% 0;
+	font-size: 0.875em;
+}
+
+.link-rodape a, .link-rodape:hover a, .titulo-rodape, .titulo-rodape-1 {
+	color: #FFF;
+}
+
+.titulo-rodape {
+	text-align: center;
+}
+
+.titulo-rodape-1 {
+	margin:  0.8% 0 0 3.7em;
+}
+
+.news-rodape {
+	padding: 0.5% 0 0 5.2em;
+}
+
+.menu-rodape-bloco-1 {
+	margin:  1.5% 0 0 4.3em;
+}
+
+.menu-rodape-bloco-2 {
+	margin:  0 0 0 5.3em;
+}
+
+
+
+.link-rodape-rs {
+	padding: 3% 0.400em;
+}
+
+.footer-rodape-2 {
+	background: #822C00;
+	
+	width: 100%;
+	border-top: 1px solid #FFF; 
+}
+
+.footer-rodape-2-centro {
+	width: 100%;
+	margin:  0 auto;
+	max-width: 1020px;
+	height: 4.43em;
+	color: #fff;
+	font-size: 0.750em;
+}
+
+.texto-rodape {
+	text-align: center;
+	padding: 1% 0;
+}
+
+/* Rodapé */
+
+/* Meu CSS */
